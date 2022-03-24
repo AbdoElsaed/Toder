@@ -7,6 +7,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import DeleteIcon from "@mui/icons-material/Delete";
 import Divider from "@mui/material/Divider";
 import { green } from "@mui/material/colors";
@@ -74,8 +75,19 @@ const Item = ({ task, itemIsEdited, setItemIsEdited, upcoming }) => {
               sx={{ color: "#DDD" }}
               size="small"
               edge="end"
+              aria-label="start focus session"
+              onClick={() => {}}
+              title="start focus session"
+            >
+              <PlayCircleOutlineIcon style={{ color: '#2c8042' }}/>
+            </IconButton>
+            <IconButton
+              sx={{ color: "#DDD" }}
+              size="small"
+              edge="end"
               aria-label="edit"
               onClick={handleEditView}
+              title="edit"
             >
               <EditIcon />
             </IconButton>
@@ -85,6 +97,7 @@ const Item = ({ task, itemIsEdited, setItemIsEdited, upcoming }) => {
               onClick={handleDelete}
               edge="end"
               aria-label="delete"
+              title="delete"
             >
               <DeleteIcon />
             </IconButton>
