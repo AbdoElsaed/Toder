@@ -5,7 +5,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import SingleItem from "./SingleItem";
-import AddIssue from "./AddIssue";
+import AddIssue from "./AddIssueView";
 
 const styles = {
   root: {
@@ -19,8 +19,8 @@ const styles = {
     borderRadius: "10px",
     maxHeight: "400px",
     overflowY: "hidden",
-    scrollMargin: '0px 0px 0px 0px',
-    scrollPadding: '0px 0px 0px 0px'
+    scrollMargin: "0px 0px 0px 0px",
+    scrollPadding: "0px 0px 0px 0px",
   },
   item: {
     border: "1px solid #333",
@@ -75,6 +75,7 @@ const SingleList = ({
                         key={task._id}
                         draggableId={`${task._id}-${index}`}
                         index={index}
+                        // isDragDisabled={true}
                       >
                         {(provided) => (
                           <div
@@ -83,7 +84,15 @@ const SingleList = ({
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                           >
-                            <SingleItem task={task} />
+                            <SingleItem
+                              task={task}
+                              project={project}
+                              setProject={setProject}
+                              type={type}
+                              setTodoTasks={setTodoTasks}
+                              setInprogressTasks={setInprogressTasks}
+                              setDoneTasks={setDoneTasks}
+                            />
                           </div>
                         )}
                       </Draggable>
